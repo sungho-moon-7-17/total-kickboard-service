@@ -17,7 +17,7 @@ let seqMap = new Promise(function(resolve, reject){
 });
 
 seqMap.then((val) => {
-    window.alert(val);
+    console.log(val);
 
     let mapOption = { 
         center: new kakao.maps.LatLng(tempLatitude, tempLongitude), // 지도의 중심좌표
@@ -42,3 +42,14 @@ seqMap.then(navigator.geolocation.watchPosition(function (pos){
 seqMap.catch(() => {
     console.log ("exception");
 });
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "http://127.0.0.1:8080/data", true);
+xhr.send();
+xhr.onreadystatechange = function() {
+    let temp = xhr.response;
+
+    if (xhr.readyState === 4 && xhr.status === 200){
+        console.log("Response : " + temp);
+    }
+}
