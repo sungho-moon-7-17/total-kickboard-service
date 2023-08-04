@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sungho-moon-7-17/web-server#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2"
   }
 }
