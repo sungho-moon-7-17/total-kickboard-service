@@ -17,9 +17,7 @@ app.get("/", (req, res) => {
 app.get("/data", (req, res) => {
   pool.query("select * from test", (error, result) => {
     res.send(result);
-
-    console.log(pool);
-    // console.log("request temp");
+    console.log("request temp");
   });
 });
 

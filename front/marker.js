@@ -1,17 +1,21 @@
+const iconRoute = "./icon/";
+
 class Marker{
     marker;
 
+    name;
     latitude;
     longitude;
 
-    constructor(latitude, longitude, src){
+    constructor(latitude, longitude, name){
+        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
 
         let markerPos = new kakao.maps.LatLng(latitude, longitude);
 
-        if (src){
-            let imgSrc = src,
+        if (name){ // src 인자에 값이 있으면
+            let imgSrc = iconRoute + name + "Icon.png",
                 imgSize = new kakao.maps.Size(30);
             let markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize);
 
@@ -20,7 +24,7 @@ class Marker{
                 image : markerImg
             });
         }
-        else {
+        else { // src 인자의 값이 없을 때
             this.marker = new kakao.maps.Marker({
                 position : markerPos
             });
